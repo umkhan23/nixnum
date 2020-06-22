@@ -12,26 +12,6 @@ chmod +x nixnum.sh
 
 ### Usage
 ```
-┌─[user@Ubuntu]─[Time: 07:32:53] 
-└─[nixnum-->./nixnum.sh 
-         )            )                      
-        ( /(        ( /(                     
-        )\()) (    ) )\())    ()    )        
-       ((_)\  )\  ( /(((_)\   ))   ()        
-      _((_)((_) )\())_((_) /((_)   )\        
-     | \| | (_)((_)\| \| |(_))(  _((_))      
-     |    | | |\ \ /|    || || ||    \|      
-     |_|\_| |_|/_\_\|_|\_| \_,_||_|_|_|      
- ##########################################  
-
-
- [*] Nixnum Local Linux Enumeration Script                 [*] 
- [*] Version : 1.0                                         [*] 
- [*] Author : Usman Q Khan                                 [*] 
- [*] Project Home : https://www.github.com/umkhan23/nixnum [*] 
- [*] Follow me on Twitter : @UsmanQaiserKhan               [*] 
-
-
 Usage: ./nixnum.sh [options]
 
 Pick any flag below to begin enumeration:
