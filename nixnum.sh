@@ -1,6 +1,11 @@
 #!/bin/bash
 
 start=$SECONDS
+<<<<<<< HEAD
+=======
+
+#banner
+>>>>>>> 94b5fab47a5b3b11ab30174729ba9bbf5936d04c
 
 #banner
 banner () {
@@ -36,9 +41,28 @@ ps aux
 printf -- '\n'
 }
 
+<<<<<<< HEAD
 #networking
 network () {
 printf -- '\033[91m Checking networking info..... \033[0m\n'
+=======
+#network
+printf -- '\033[91m Checking networking info..... \033[0m\n'
+printf -- '\033[34m ##################################  \033[0m\n'
+sleep 1
+ifconfig -a
+printf -- '\n'
+
+#iptables
+printf -- '\033[91m Checking for ip tables..... \033[0m\n'
+printf -- '\033[34m ##################################  \033[0m\n'
+sleep 1
+iptables -L
+printf -- '\n'
+
+#hostname
+printf -- '\033[91m Checking hostname..... \033[0m\n'
+>>>>>>> 94b5fab47a5b3b11ab30174729ba9bbf5936d04c
 printf -- '\033[34m ##################################  \033[0m\n'
 sleep 1
 ifconfig -a
@@ -71,6 +95,13 @@ sleep 1
 cat /etc/services
 printf -- '\n'
 }
+
+#services
+printf -- '\033[91m Checking for services on the machine..... \033[0m\n'
+printf -- '\033[34m ##################################  \033[0m\n'
+sleep 1
+cat /etc/services
+printf -- '\n'
 
 #kernel info
 kernel_enum () {
@@ -118,7 +149,10 @@ printf -- '\n'
 }
 
 #SUID
+<<<<<<< HEAD
 suid () {
+=======
+>>>>>>> 94b5fab47a5b3b11ab30174729ba9bbf5936d04c
 printf -- '\033[91m Checking for SUID..... \033[0m\n'
 printf -- '\033[34m ##################################  \033[0m\n'
 sleep 1
@@ -134,6 +168,13 @@ sleep 1
 find / -perm -g=s -type f 2>/dev/null
 printf -- '\n'
 }
+
+#GUID
+printf -- '\033[91m Checking for GUID.....              \033[0m\n'
+printf -- '\033[34m ##################################  \033[0m\n'
+sleep 1
+find / -perm -g=s -type f 2>/dev/null
+printf -- '\n'
 
 #cron
 cronjobs () {
@@ -181,6 +222,33 @@ cat /etc/ssh/sshd_config | grep PermitRootLogin
 printf -- '\n'
 }
 
+#modified files
+printf -- '\033[91m Checking for recently modified files in /etc..... \033[0m\n'
+printf -- '\033[34m ##################################  \033[0m\n'
+sleep 1
+find /etc -type f -printf '%TY-%Tm-%Td %TT %p\n' | sort -r
+printf -- '\n'
+
+printf -- '\033[91m Checking for recently modified files in /home..... \033[0m\n'
+printf -- '\033[34m ##################################  \033[0m\n'
+sleep 1
+find /home -type f -mmin -60
+printf -- '\n'
+
+#ssh
+printf -- '\033[91m Checking if root can login via SSH..... \033[0m\n'
+printf -- '\033[34m ##################################  \033[0m\n'
+sleep 1
+cat /etc/ssh/sshd_config | grep PermitRootLogin
+printf -- '\n'
+
+#passwords
+printf -- '\033[91m Recursively searching for any passwords..... \033[0m\n'
+printf -- '\033[34m ##################################  \033[0m\n'
+sleep 1
+grep -ri "pass" .
+printf -- '\n'
+
 #bash history
 bash_history () {
 printf -- '\033[91m Checking bash history..... \033[0m\n'
@@ -200,6 +268,7 @@ printf -- '\n'
 }
 
 #end
+<<<<<<< HEAD
 end () {
 printf -- '\033[32m [*]    SUCCESS: ALL CHECKS COMPLETED    [*]    \033[0m\n';
 end=$SECONDS
@@ -258,4 +327,12 @@ elif [ $# -gt 1 ]; then
 else
 	printf -- '\033[91m Error: Invalid Flag \033[0m\n';
 fi
+=======
+printf -- '\033[32m [*] SUCCESS: ALL CHECKS COMPLETED :) [*]    \033[0m\n';
+end=$SECONDS
+
+echo "Duration: $((end-start)) seconds."
+
+
+>>>>>>> 94b5fab47a5b3b11ab30174729ba9bbf5936d04c
 
